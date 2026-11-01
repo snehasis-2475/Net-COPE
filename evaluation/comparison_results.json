@@ -1,0 +1,39 @@
+{
+  "benchmark_timestamp": "2026-11-01T02:25:46.866368+00:00",
+  "easy_set": {
+    "dataset_name": "Easy Set (Standard Generator)",
+    "total_episodes": 7,
+    "netcoop": {
+      "accuracy": 0.8571,
+      "macro_f1": 0.8095,
+      "false_positive_rate": 0.0,
+      "avg_root_causes_per_episode": 0.86,
+      "safety_gating_rate": 0.5455
+    },
+    "baseline": {
+      "accuracy": 0.8571,
+      "macro_f1": 0.8095,
+      "false_positive_rate": 0.0,
+      "avg_alerts_per_episode": 57.43,
+      "safety_gating_rate": 0.0
+    }
+  },
+  "hard_set": {
+    "dataset_name": "Hard Set (Challenging Benchmark)",
+    "total_episodes": 7,
+    "netcoop": {
+      "accuracy": 0.7143,
+      "macro_f1": 0.6667,
+      "false_positive_rate": 0.0,
+      "avg_root_causes_per_episode": 0.86,
+      "safety_gating_rate": 0.4615
+    },
+    "baseline": {
+      "accuracy": 0.5714,
+      "macro_f1": 0.4857,
+      "false_positive_rate": 1.0,
+      "avg_alerts_per_episode": 36.29,
+      "safety_gating_rate": 0.0
+    }
+  }
+}

@@ -1,0 +1,13 @@
+device_id,device_type,timestamp,location,interface_name,latency_ms,jitter_ms,packet_loss_percent,throughput_mbps,bandwidth_utilization_percent,cpu_utilization_percent,memory_utilization_percent,device_status,interface_errors,queue_drops,wifi_signal_dbm,dns_status,dhcp_status,connectivity_status
+edge-switch-02,switch,2026-11-01T05:47:23.945957Z,Warehouse-B,GigabitEthernet0/24,13.0,1.8,0.0,280.0,32.0,26.0,42.0,active,0,0,,success,bound,connected
+edge-switch-02,switch,2026-11-01T05:47:33.945957Z,Warehouse-B,GigabitEthernet0/24,13.0,1.8,0.0,280.0,32.0,26.0,42.0,active,0,0,,success,bound,connected
+edge-switch-02,switch,2026-11-01T05:47:43.945957Z,Warehouse-B,GigabitEthernet0/24,13.0,1.8,0.0,280.0,32.0,26.0,42.0,active,0,0,,success,bound,connected
+edge-switch-02,switch,2026-11-01T05:47:53.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,300,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:03.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,350,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:13.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,400,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:23.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,450,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:33.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,500,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:43.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,550,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:48:53.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,600,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:49:03.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,650,0,,timeout,failed,disconnected
+edge-switch-02,switch,2026-11-01T05:49:13.945957Z,Warehouse-B,GigabitEthernet0/24,190.0,45.0,80.0,0.0,0.0,26.0,42.0,down,700,0,,timeout,failed,disconnected

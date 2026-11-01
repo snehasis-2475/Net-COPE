@@ -1,0 +1,716 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   NETCOOP AI — SIGNAL DESIGN SYSTEM
+   Charcoal ink, paper gray, signal yellow, with an iridescent splash reserved
+   for interaction (cursor, hover fills, WebGL surfaces).
+   ========================================================================== */
+
+:root {
+  --ink: #121212;
+  --ivory: #DAD9D4;
+  --signal: #F5C21B;
+  --magenta: #B5179E;
+
+  /* Accent token (historical name). Each theme scope re-points it for contrast. */
+  --teal: var(--magenta);
+  --fg: var(--ink);
+
+  --iridescent: linear-gradient(100deg, #5219DB 0%, #F529A8 30%, #FF7380 55%, #1F70FF 80%, #5219DB 100%);
+
+  --ink-90: rgba(18, 18, 18, 0.90);
+  --ink-70: rgba(18, 18, 18, 0.70);
+  --ink-40: rgba(18, 18, 18, 0.40);
+  --ink-15: rgba(18, 18, 18, 0.15);
+  --ink-08: rgba(18, 18, 18, 0.08);
+
+  --ivory-90: rgba(218, 217, 212, 0.90);
+  --ivory-70: rgba(218, 217, 212, 0.70);
+  --ivory-40: rgba(218, 217, 212, 0.40);
+  --ivory-15: rgba(218, 217, 212, 0.15);
+  --ivory-08: rgba(218, 217, 212, 0.08);
+
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  /* Legacy token name used by inline styles; now maps to the display grotesk. */
+  --font-serif: var(--font-display);
+  --font-sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --margin-gutter: clamp(1.5rem, 5vw, 6rem);
+  --hairline-ink: 1px solid var(--ink-15);
+  --hairline-ivory: 1px solid var(--ivory-15);
+  --solid-ink: 1.5px solid var(--ink);
+  --solid-ivory: 1.5px solid var(--ivory);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--ink);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.65;
+  cursor: default;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}
+
+select option {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+/* Film grain on paper sections */
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* ==========================================================================
+   THEMES
+   ========================================================================== */
+
+.theme-ivory {
+  --teal: var(--magenta);
+  --fg: var(--ink);
+  background-color: var(--ivory);
+  color: var(--ink);
+  transition: background-color 0.5s var(--ease-in-out), color 0.5s ease;
+}
+
+.theme-ink {
+  --teal: var(--signal);
+  --fg: var(--ivory);
+  background-color: var(--ink);
+  color: var(--ivory);
+  transition: background-color 0.5s var(--ease-in-out), color 0.5s ease;
+}
+
+.theme-signal {
+  --teal: var(--ink);
+  --fg: var(--ink);
+  background-color: var(--signal);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY (class names kept for compatibility; all now grotesk)
+   ========================================================================== */
+
+.serif-display {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+}
+
+.serif-headline {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
+.serif-subhead {
+  font-family: var(--font-display);
+  font-stretch: 100%;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+.editorial-caption {
+  font-size: 0.8125rem;
+  opacity: 0.65;
+  max-width: 58ch;
+}
+
+/* Outlined emphasis that floods with iridescent colour when its heading is hovered */
+.em-outline {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--fg);
+  background-image: var(--iridescent);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 0.9s var(--ease-out);
+}
+
+h1:hover .em-outline,
+h2:hover .em-outline,
+.em-outline:hover {
+  background-size: 100% 100%;
+}
+
+/* Links with animated underline */
+.editorial-link {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--teal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.editorial-link:hover::after,
+.editorial-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Hairlines */
+.hairline-top { border-top: var(--hairline-ink); }
+.hairline-bottom { border-bottom: var(--hairline-ink); }
+.hairline-right { border-right: var(--hairline-ink); }
+.theme-ink .hairline-top { border-top: var(--hairline-ivory); }
+.theme-ink .hairline-bottom { border-bottom: var(--hairline-ivory); }
+.theme-ink .hairline-right { border-right: var(--hairline-ivory); }
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  height: 72px;
+  padding: 0 var(--margin-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  color: var(--ivory);
+  background-color: rgba(18, 18, 18, 0.86);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--ivory-08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  display: inline-flex;
+  color: var(--signal);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(90deg);
+}
+
+.brand-word {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.brand-meta {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 2rem);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ivory-70);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-index {
+  font-size: 0.5625rem;
+  opacity: 0.45;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ivory);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link.active .nav-index,
+.nav-link:hover .nav-index {
+  color: var(--signal);
+  opacity: 1;
+}
+
+/* Vertical text roll on hover */
+.roll {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.25;
+  vertical-align: bottom;
+}
+
+.roll > span {
+  display: inline-block;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.roll::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  color: var(--signal);
+  transition: transform 0.5s var(--ease-out);
+}
+
+.nav-link:hover .roll > span,
+.nav-link:hover .roll::after {
+  transform: translateY(-100%);
+}
+
+.api-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--ivory-15);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ivory-70);
+  transition: border-color 0.3s ease;
+}
+
+.api-status:hover {
+  border-color: var(--signal);
+}
+
+.api-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ivory-40);
+}
+
+.api-status.is-online .api-dot {
+  background: var(--signal);
+  animation: api-pulse 2s ease-out infinite;
+}
+
+@keyframes api-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(245, 194, 27, 0.55); }
+  100% { box-shadow: 0 0 0 7px rgba(245, 194, 27, 0); }
+}
+
+/* ==========================================================================
+   CURSOR
+   ========================================================================== */
+
+.custom-cursor-dot,
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+
+.custom-cursor-ring {
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  border: 1px solid #ffffff;
+  z-index: 9998;
+  transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out), margin 0.4s var(--ease-out),
+    background-color 0.3s ease;
+}
+
+.custom-cursor-ring.active {
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  background-color: #ffffff;
+}
+
+.custom-cursor-ring.pressed {
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+}
+
+.cursor-burst {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  background: conic-gradient(from 0deg, #5219DB, #F529A8, #FF7380, #1F70FF, #F5C21B, #5219DB);
+  -webkit-mask: radial-gradient(circle, transparent 56%, #000 58%, #000 66%, transparent 68%);
+  mask: radial-gradient(circle, transparent 56%, #000 58%, #000 66%, transparent 68%);
+  animation: cursor-burst 0.8s var(--ease-out) forwards;
+}
+
+@keyframes cursor-burst {
+  from { transform: scale(0.15) rotate(0deg); opacity: 1; }
+  to { transform: scale(1.3) rotate(140deg); opacity: 0; }
+}
+
+@media (hover: none) {
+  .custom-cursor-dot, .custom-cursor-ring, .cursor-burst { display: none; }
+}
+
+/* ==========================================================================
+   INTERACTION
+   ========================================================================== */
+
+/* Cursor-following colour spotlight (the Cursor component feeds --mx / --my) */
+[data-spot] {
+  position: relative;
+  isolation: isolate;
+  transition: border-color 0.4s ease;
+}
+
+[data-spot]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    460px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--teal) 16%, transparent),
+    transparent 62%
+  );
+  transition: opacity 0.5s ease;
+}
+
+[data-spot]:hover::after {
+  opacity: 1;
+}
+
+/* List rows: index lights up, title glides */
+.hover-row > :first-child,
+.hover-row h3 {
+  transition: transform 0.55s var(--ease-out), color 0.3s ease, opacity 0.3s ease;
+}
+
+.hover-row:hover > :first-child {
+  color: var(--teal);
+  opacity: 1 !important;
+}
+
+.hover-row:hover h3 {
+  transform: translateX(10px);
+}
+
+.agent-row h3,
+.agent-row > span:first-child,
+.agent-row svg {
+  transition: transform 0.7s var(--ease-out), color 0.3s ease, opacity 0.3s ease;
+}
+
+.agent-row:hover > span:first-child {
+  color: var(--teal);
+  opacity: 1 !important;
+  transform: translateY(-4px);
+}
+
+.agent-row:hover h3 {
+  transform: translateX(16px);
+  color: var(--teal);
+}
+
+.agent-row:hover svg {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.signal-chip {
+  transition: transform 0.6s var(--ease-out), border-color 0.3s ease;
+}
+
+.signal-chip:hover {
+  transform: translateY(-6px);
+  border-left-color: var(--teal) !important;
+}
+
+.signal-chip > p:first-child {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.signal-chip:hover > p:first-child {
+  color: var(--teal);
+  opacity: 1 !important;
+}
+
+/* Buttons: hard offset shadow in the scope accent */
+button {
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), opacity 0.2s ease;
+}
+
+button:not(:disabled):not(.editorial-link):hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 3px 3px 0 0 var(--teal);
+}
+
+button:not(:disabled):not(.editorial-link):active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 0 var(--teal);
+}
+
+/* ==========================================================================
+   WEBGL LAYERS
+   ========================================================================== */
+
+.page-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: min(100vh, 920px);
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
+  mask-image: linear-gradient(to bottom, #000 30%, transparent 95%);
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent 100%);
+}
+
+.minds-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.agent-ring {
+  height: clamp(360px, 34vw, 500px);
+}
+
+.ribbon-band {
+  position: relative;
+  height: clamp(320px, 38vw, 540px);
+  margin: 5rem calc(-1 * var(--margin-gutter)) calc(-1 * clamp(5rem, 9vw, 9rem));
+  border-top: var(--hairline-ivory);
+  overflow: hidden;
+}
+
+.ribbon-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.ribbon-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.workbench-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.orbit-canvas {
+  height: clamp(260px, 26vw, 380px);
+}
+
+.footer-mark {
+  flex-basis: 100%;
+  margin-top: 3rem;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(3rem, 10.5vw, 12rem);
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ivory-40);
+  background-image: var(--iridescent);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 1.2s var(--ease-out), -webkit-text-stroke-color 0.4s ease;
+  user-select: none;
+}
+
+.footer-mark:hover {
+  background-size: 100% 100%;
+  -webkit-text-stroke-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .minds-head,
+  .workbench-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scroll progress */
+.scroll-progress-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-image: var(--iridescent);
+  z-index: 10000;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--teal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .custom-cursor-dot, .custom-cursor-ring, .cursor-burst {
+    display: none !important;
+  }
+}

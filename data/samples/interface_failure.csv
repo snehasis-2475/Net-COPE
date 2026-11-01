@@ -1,0 +1,13 @@
+timestamp,device_id,device_type,latency_ms,jitter_ms,packet_loss_pct,throughput_mbps,bandwidth_util_pct,device_availability,cpu_util_pct,memory_util_pct,interface_status,interface_errors,queue_drops,dns_resolution_status,dns_latency_ms,dhcp_status,wifi_rssi_dbm,wifi_snr_db,connectivity_status
+2026-11-01T05:47:23.989230+00:00,edge-switch-02,switch,14.0,1.5,0.0,320.0,35.0,100.0,28.0,44.0,up,0,0,success,10.0,bound,,,connected
+2026-11-01T05:47:33.989230+00:00,edge-switch-02,switch,14.0,1.5,0.0,320.0,35.0,100.0,28.0,44.0,up,0,0,success,10.0,bound,,,connected
+2026-11-01T05:47:43.989230+00:00,edge-switch-02,switch,14.0,1.5,0.0,320.0,35.0,100.0,28.0,44.0,up,0,0,success,10.0,bound,,,connected
+2026-11-01T05:47:53.989230+00:00,edge-switch-02,switch,14.0,1.5,0.0,320.0,35.0,100.0,28.0,44.0,up,0,0,success,10.0,bound,,,connected
+2026-11-01T05:48:03.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,flapping,300,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:48:13.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,flapping,345,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:48:23.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,down,390,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:48:33.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,down,435,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:48:43.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,flapping,480,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:48:53.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,down,525,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:49:03.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,down,570,0,timeout,500.0,failed,,,disconnected
+2026-11-01T05:49:13.989230+00:00,edge-switch-02,switch,180.0,40.0,75.0,0.0,0.0,50.0,28.0,44.0,down,615,0,timeout,500.0,failed,,,disconnected

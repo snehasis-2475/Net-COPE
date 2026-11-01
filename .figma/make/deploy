@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+npm run build --prefix frontend
+[[ -d "frontend/dist" ]] || {
+  echo "Expected build output at frontend/dist" >&2
+  exit 1
+}
+figma make deploy --build-dir "frontend/dist"

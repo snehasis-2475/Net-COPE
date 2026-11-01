@@ -1,0 +1,5 @@
+timestamp,device_id,latency_ms,packet_loss_pct,cpu_util_pct,random_garbage,value,interface_status,bandwidth_util_pct
+corrupt-date,,-500.0,350.0,,,,,
+,,,,200.0,,,,
+,,,,,malformed_json_field,null,,
+,router-x,,,,,,invalid_status_enum,-99.0

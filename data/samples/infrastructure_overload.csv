@@ -1,0 +1,13 @@
+timestamp,device_id,device_type,latency_ms,jitter_ms,packet_loss_pct,throughput_mbps,bandwidth_util_pct,device_availability,cpu_util_pct,memory_util_pct,interface_status,interface_errors,queue_drops,dns_resolution_status,dns_latency_ms,dhcp_status,wifi_rssi_dbm,wifi_snr_db,connectivity_status
+2026-11-01T05:47:23.999713+00:00,core-router-01,router,12.0,1.5,0.0,850.0,55.0,100.0,30.0,45.0,up,0,0,success,8.0,bound,,,connected
+2026-11-01T05:47:33.999713+00:00,core-router-01,router,12.0,1.5,0.0,850.0,55.0,100.0,30.0,45.0,up,0,0,success,8.0,bound,,,connected
+2026-11-01T05:47:43.999713+00:00,core-router-01,router,12.0,1.5,0.0,850.0,55.0,100.0,30.0,45.0,up,0,0,success,8.0,bound,,,connected
+2026-11-01T05:47:53.999713+00:00,core-router-01,router,190.0,42.0,6.5,110.0,55.0,88.0,96.0,94.5,up,0,440,success,65.0,bound,,,degraded
+2026-11-01T05:48:03.999713+00:00,core-router-01,router,210.0,48.0,6.5,110.0,55.0,88.0,97.5,93.0,up,0,480,success,65.0,bound,,,degraded
+2026-11-01T05:48:13.999713+00:00,core-router-01,router,230.0,54.0,6.5,110.0,55.0,88.0,99.0,94.5,up,0,520,success,65.0,bound,,,degraded
+2026-11-01T05:48:23.999713+00:00,core-router-01,router,190.0,42.0,6.5,110.0,55.0,88.0,96.0,93.0,up,0,560,success,65.0,bound,,,degraded
+2026-11-01T05:48:33.999713+00:00,core-router-01,router,210.0,48.0,6.5,110.0,55.0,88.0,97.5,94.5,up,0,600,success,65.0,bound,,,degraded
+2026-11-01T05:48:43.999713+00:00,core-router-01,router,230.0,54.0,6.5,110.0,55.0,88.0,99.0,93.0,up,0,640,success,65.0,bound,,,degraded
+2026-11-01T05:48:53.999713+00:00,core-router-01,router,190.0,42.0,6.5,110.0,55.0,88.0,96.0,94.5,up,0,680,success,65.0,bound,,,degraded
+2026-11-01T05:49:03.999713+00:00,core-router-01,router,210.0,48.0,6.5,110.0,55.0,88.0,97.5,93.0,up,0,720,success,65.0,bound,,,degraded
+2026-11-01T05:49:13.999713+00:00,core-router-01,router,230.0,54.0,6.5,110.0,55.0,88.0,99.0,94.5,up,0,760,success,65.0,bound,,,degraded

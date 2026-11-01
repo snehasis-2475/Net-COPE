@@ -1,0 +1,64 @@
+{
+  "dataset_version": "1.0.0",
+  "generation_timestamp": "2026-10-31T11:28:26.865859+00:00",
+  "random_seed": 42,
+  "total_records": 4188,
+  "total_episodes": 96,
+  "episodes_per_scenario": 12,
+  "scenario_classes": [
+    "normal",
+    "congestion",
+    "weak_wifi",
+    "interface_failure",
+    "dns_failure",
+    "dhcp_failure",
+    "infrastructure_overload",
+    "invalid_telemetry"
+  ],
+  "device_count": 9,
+  "splits": {
+    "dev": {
+      "episodes": 48,
+      "records": 2094
+    },
+    "val": {
+      "episodes": 24,
+      "records": 1047
+    },
+    "test": {
+      "episodes": 24,
+      "records": 1047
+    }
+  },
+  "scenario_distribution": {
+    "normal": 12,
+    "congestion": 12,
+    "weak_wifi": 12,
+    "interface_failure": 12,
+    "dns_failure": 12,
+    "dhcp_failure": 12,
+    "infrastructure_overload": 12,
+    "invalid_telemetry": 12
+  },
+  "feature_descriptions": {
+    "device_id": "Unique identifier of the reporting network device",
+    "device_type": "Device role or category (router, switch, ap, endpoint, server)",
+    "timestamp": "ISO 8601 UTC timestamp of measurement",
+    "latency_ms": "Round trip delay in milliseconds",
+    "jitter_ms": "Packet delay variation in milliseconds",
+    "packet_loss_pct": "Percentage of packet loss (0.0 to 100.0)",
+    "throughput_mbps": "Observed throughput in Megabits per second",
+    "bandwidth_util_pct": "Interface bandwidth consumption percentage",
+    "cpu_util_pct": "Supervisor / CPU processor utilization percentage",
+    "memory_util_pct": "Device memory utilization percentage",
+    "interface_status": "Operational link state ('up' or 'down')",
+    "interface_errors": "Cumulative CRC / framing / FCS error count",
+    "queue_drops": "Tail drops due to buffer saturation",
+    "dns_resolution_status": "DNS query status ('success', 'timeout', 'servfail')",
+    "dns_latency_ms": "DNS name resolution round trip latency",
+    "dhcp_status": "DHCP lease binding state ('bound', 'exhausted', 'failed')",
+    "wifi_rssi_dbm": "Received Wi-Fi signal power level in dBm",
+    "wifi_snr_db": "Wi-Fi Signal-to-Noise ratio in dB",
+    "connectivity_status": "Overall connectivity state ('connected', 'degraded', 'disconnected')"
+  }
+}

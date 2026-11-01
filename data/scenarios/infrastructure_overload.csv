@@ -1,0 +1,13 @@
+device_id,device_type,timestamp,location,interface_name,latency_ms,jitter_ms,packet_loss_percent,throughput_mbps,bandwidth_utilization_percent,cpu_utilization_percent,memory_utilization_percent,device_status,interface_errors,queue_drops,wifi_signal_dbm,dns_status,dhcp_status,connectivity_status
+core-router-01,router,2026-11-01T05:47:23.966270Z,DC-East,TenGig0/1,12.0,1.5,0.0,800.0,48.0,32.0,44.0,active,0,0,,success,bound,connected
+core-router-01,router,2026-11-01T05:47:33.966270Z,DC-East,TenGig0/1,12.0,1.5,0.0,800.0,48.0,32.0,44.0,active,0,0,,success,bound,connected
+core-router-01,router,2026-11-01T05:47:43.966270Z,DC-East,TenGig0/1,221.0,49.0,6.8,120.0,48.0,98.9,93.0,degraded,0,370,,success,bound,degraded
+core-router-01,router,2026-11-01T05:47:53.966270Z,DC-East,TenGig0/1,185.0,39.0,6.8,120.0,48.0,96.5,94.5,degraded,0,415,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:03.966270Z,DC-East,TenGig0/1,203.0,44.0,6.8,120.0,48.0,97.7,93.0,degraded,0,460,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:13.966270Z,DC-East,TenGig0/1,221.0,49.0,6.8,120.0,48.0,98.9,94.5,degraded,0,505,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:23.966270Z,DC-East,TenGig0/1,185.0,39.0,6.8,120.0,48.0,96.5,93.0,degraded,0,550,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:33.966270Z,DC-East,TenGig0/1,203.0,44.0,6.8,120.0,48.0,97.7,94.5,degraded,0,595,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:43.966270Z,DC-East,TenGig0/1,221.0,49.0,6.8,120.0,48.0,98.9,93.0,degraded,0,640,,success,bound,degraded
+core-router-01,router,2026-11-01T05:48:53.966270Z,DC-East,TenGig0/1,185.0,39.0,6.8,120.0,48.0,96.5,94.5,degraded,0,685,,success,bound,degraded
+core-router-01,router,2026-11-01T05:49:03.966270Z,DC-East,TenGig0/1,203.0,44.0,6.8,120.0,48.0,97.7,93.0,degraded,0,730,,success,bound,degraded
+core-router-01,router,2026-11-01T05:49:13.966270Z,DC-East,TenGig0/1,221.0,49.0,6.8,120.0,48.0,98.9,94.5,degraded,0,775,,success,bound,degraded
